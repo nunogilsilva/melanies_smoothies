@@ -46,5 +46,5 @@ if ingredients_list and name_on_order:
 
 
 # New section to display smoothiefroot nutrition information
-smoothiefroot_response = request('GET', "https://my.smoothiefroot.com/api/fruit/watermelon")
+smoothiefroot_response = requests('GET', "https://my.smoothiefroot.com/api/fruit/watermelon")
 st.text(smoothiefroot_response)
