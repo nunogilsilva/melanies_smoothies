@@ -48,7 +48,7 @@ if ingredients_list and name_on_order:
         st.success('Your Smoothie is ordered!', icon="✅")
 
 smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/all")
-
+st.write(smoothiefroot_response.json())
 for fruit in smoothiefroot_response.json()
   
   my_update_stmt = f" UPDATE smoothies.public.FRUIT_OPTIONS set SEARCH_ON = '{fruit.name}' WHERE fruit_name = '{fruit.name}' "
