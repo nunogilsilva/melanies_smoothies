@@ -34,6 +34,7 @@ if ingredients_list and name_on_order:
         st.subheader(fruit_chosen + ' Nutrition Information')
         smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{fruit_chosen}")
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+
     #st.write(ingredients_string)
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
@@ -45,4 +46,11 @@ if ingredients_list and name_on_order:
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered!', icon="✅")
+
+smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/all")
+
+for fruit in smoothiefroot_response.json()
+  
+  my_update_stmt = f" UPDATE smoothies.public.FRUIT_OPTIONS set SEARCH_ON = '{fruit.name}' WHERE fruit_name = '{fruit.name}' "
+  session.sql(my_update_stmt)
 
